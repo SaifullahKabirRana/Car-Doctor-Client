@@ -10,7 +10,7 @@ const Banner = () => {
     return (
         <div className='mt-3 md:mt-4 lg:mt-6 '>
             <div className="carousel w-full "> 
-                <div id="slide1" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-1 rounded-xl">
+                <div id="slide1" className="carousel-item relative w-full h-[250px] md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-1 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
@@ -26,7 +26,7 @@ const Banner = () => {
                         <a href="#slide2" className="btn btn-sm md:btn-md btn-circle bg-[#FF3811] text-white font-bold border-none"><FaArrowRight /></a>
                     </div>
                 </div>
-                <div id="slide2" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-2 rounded-xl">
+                <div id="slide2" className="carousel-item relative w-full h-[250px] md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-2 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
@@ -42,7 +42,7 @@ const Banner = () => {
                         <a href="#slide3" className="btn btn-sm md:btn-md btn-circle bg-[#FF3811] text-white font-bold border-none"><FaArrowRight /></a>
                     </div>
                 </div>
-                <div id="slide3" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-3 rounded-xl">
+                <div id="slide3" className="carousel-item relative w-full h-[250px] md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-3 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
@@ -58,7 +58,7 @@ const Banner = () => {
                         <a href="#slide4" className="btn btn-sm md:btn-md btn-circle bg-[#FF3811] text-white font-bold border-none"><FaArrowRight /></a>
                     </div>
                 </div>
-                <div id="slide4" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-4 rounded-xl">
+                <div id="slide4" className="carousel-item relative w-full h-[250px] md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-4 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
@@ -74,7 +74,7 @@ const Banner = () => {
                         <a href="#slide5" className="btn btn-sm md:btn-md btn-circle bg-[#FF3811] text-white font-bold border-none"><FaArrowRight /></a>
                     </div>
                 </div>
-                <div id="slide5" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-5 rounded-xl">
+                <div id="slide5" className="carousel-item relative w-full h-[250px]  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-5 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
@@ -90,7 +90,7 @@ const Banner = () => {
                         <a href="#slide6" className="btn btn-sm md:btn-md btn-circle bg-[#FF3811] text-white font-bold border-none"><FaArrowRight /></a>
                     </div>
                 </div>
-                <div id="slide6" className="carousel-item relative w-full  md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-6 rounded-xl">
+                <div id="slide6" className="carousel-item relative w-full h-[250px] md:h-[400px] lg:h-[550px] xl:h-[750px]  bg-no-repeat  bg-cover   bg-top banner-6 rounded-xl">
                     <div className='absolute left-5 md:left-14 lg:left-20 xl:left-32 top-7 md:top-14 lg:top-24 xl:top-36 ' >
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold'>Affordable  </h2>
                         <h2 className='text-white text-[24px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold -mt-3 md:-mt-4 lg:-mt-5'>Price For Car</h2>
