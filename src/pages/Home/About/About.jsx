@@ -9,7 +9,7 @@ const About = () => {
                         <img className='h-[300px] md:h-[300px] lg:h-[330px] xl:h-[450px] w-[280px] md:w-[700px] lg:w-[330px] xl:w-[460px] rounded-xl' src={person} alt="" />
                         <img className='h-[220px] md:h-[200px] lg:h-[240px] xl:h-[320px]  w-[210px] md:w-[200px] lg:w-[240px] xl:w-[320px] absolute right-0 md:-right-7 lg:-right-4 xl:-right-2 2xl:right-10 top-[45%] md:top-[40%] lg:top-[45%] xl:top-1/2 border-8 border-white rounded-xl' src={parts} alt="" />
                     </div>
-                    <div className='lg:w-3/5 md:ml-10 lg:ml-10 xl:ml-0 xl:px-14 mt-12'>
+                    <div className='lg:w-3/5 md:ml-10 lg:ml-10 xl:ml-0 xl:px-14 2xl:px-20 mt-12 md:mt-0'>
                         <h2 className='text-base md:text-lg lg:text-xl text-[#FF3811] font-bold'>About Us</h2>
                         <h1 className="text-[#151515] text-3xl md:text-4xl lg:text-5xl font-bold mt-3 md:mt-4 lg:mt-5">We are qualified <br /> & of experience <br /> in this field</h1>
                         <p className="text-[#737373] text-xs md:text-sm lg:text-base mt-3 md:mt-4 lg:mt-6">

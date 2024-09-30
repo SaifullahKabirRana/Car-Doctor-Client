@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <div className=" bg-[#151515] ">
             <div className=" container mx-auto">
-                <div className='mx-6 md:mx-8 xl:mx-0'>
+                <div className='mx-6 md:mx-8 xl:mx-0 2xl:mx-10'>
                     <footer className="footer  py-[50px] md:py-[80px] lg:py-[110px] xl:py-[120px] ">
                         <aside>
                             <img className='' src={logo1} alt="" />
