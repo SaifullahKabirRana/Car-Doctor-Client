@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import login from '../../assets/images/login/login.svg';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import SocialMedia from './SocialMedia';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {signIn} = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        signIn(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
     }
     return (
         <div className='mt-6 md:mt-8 lg:mt-10 md:mx-4 lg:mx-16 xl:mx-24 2xl:mx-32 mb-10 md:mb-16 lg:mb-20 xl:mb-28'>
