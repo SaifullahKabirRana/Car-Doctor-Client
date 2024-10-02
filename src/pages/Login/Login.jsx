@@ -3,24 +3,34 @@ import login from '../../assets/images/login/login.svg';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import SocialMedia from './SocialMedia';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {signIn} = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState(true);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
+        setLoginError('')
         signIn(email, password)
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success('Successfully Login');
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 700)
+            })
+            .catch(error => {
+                setLoginError(error.code);
+            })
     }
     return (
         <div className='mt-6 md:mt-8 lg:mt-10 md:mx-4 lg:mx-16 xl:mx-24 2xl:mx-32 mb-10 md:mb-16 lg:mb-20 xl:mb-28'>
@@ -49,9 +59,14 @@ const Login = () => {
                                             name="password" placeholder="Your password" className="input input-bordered w-full text-[#A2A2A2]  " required />
                                         <span className="absolute right-5 top-3 text-xl md:text-2xl " onClick={() => setShowPassword(!showPassword)}>{showPassword ? <VscEyeClosed /> : <VscEye />}</span>
                                     </div>
+                                    <div className="ml-2 mt-1">
+                                        {
+                                            loginError && <p className="text-[12px] md:text-[15px] text-red-600">{loginError}</p>
+                                        }
+                                    </div>
 
                                 </div>
-                                <div className="form-control mt-6 md:mt-7 xl:mt-8">
+                                <div className="form-control mt-5 md:mt-6 xl:mt-7">
                                     <button className="btn bg-[#FF3811] text-white text-[16px] md:text-[20px] font-semibold">Login</button>
                                 </div>
 
@@ -66,6 +81,19 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer className=''
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            >
+            </ToastContainer>
         </div>
     );
 };

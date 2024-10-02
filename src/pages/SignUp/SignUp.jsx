@@ -2,13 +2,16 @@ import { useContext, useState } from 'react';
 import login from '../../assets/images/login/login.svg';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialMedia from '../Login/SocialMedia';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser, logOut } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+    const navigate = useNavigate()
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
@@ -17,13 +20,22 @@ const SignUp = () => {
         const password = form.password.value;
         console.log(name, email, password);
 
+        if (password.length < 6) {
+            return setRegisterError('password should be at least 6 characters or longer')
+        }
+        setRegisterError('');
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Successfully Register');
+                logOut();
+                setTimeout(() => {
+                    navigate('/login')
+                },1500);
             })
             .catch(error => {
-                console.log(error.message);
+                setRegisterError(error.code);
             })
     }
     return (
@@ -61,6 +73,11 @@ const SignUp = () => {
                                     </div>
 
                                 </div>
+                                <div className="ml-2 mb-3 md:mb-4">
+                                    {
+                                        registerError && <p className="text-[12px] md:text-[15px] text-red-600">{registerError}</p>
+                                    }
+                                </div>
                                 <div className="form-control mt-6 md:mt-7 xl:mt-8">
                                     <button className="btn bg-[#FF3811] text-white text-[16px] md:text-[20px] font-semibold">Sign Up</button>
                                 </div>
@@ -76,6 +93,19 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer className=''
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            >
+            </ToastContainer>
         </div>
     );
 };

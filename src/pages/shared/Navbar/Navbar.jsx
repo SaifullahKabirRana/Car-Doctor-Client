@@ -2,13 +2,31 @@ import { Link, NavLink } from "react-router-dom";
 import logo1 from '../../../assets/logo.svg';
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 const Navbar = () => {
+    const { user, logOut, loading } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch()
+    }
+    if(loading){
+        return;
+    }
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
         <li><NavLink to='/services'>Services</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/contact'>Contact</NavLink></li>
+        {
+            user? 
+            <li><NavLink onClick={handleLogout}>LogOut</NavLink></li>
+            :
+            <li><NavLink to='/Login'>Login</NavLink></li>
+        }
+
     </>
     return (
         <div className="mt-2 md:mt-4 lg:mt-6 ">
@@ -42,8 +60,8 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul
-                    id="nav"
-                    className="menu menu-horizontal px-1 text-sm font-medium">
+                        id="nav"
+                        className="menu menu-horizontal px-1 text-sm font-medium">
                         {navLinks}
                     </ul>
                 </div>
@@ -53,7 +71,7 @@ const Navbar = () => {
                             <HiOutlineShoppingBag />
                         </div>
                         <div className="text-xl md:text-[25px]">
-                        <IoSearchOutline />
+                            <IoSearchOutline />
                         </div>
                     </div>
                     <button className="btn text-xs bg-transparent  border-[#FF3811] text-[#FF3811] font-bold btn-sm md:btn-md lg:px-6 ">Appointment</button>
