@@ -1,5 +1,11 @@
+import { useContext } from 'react';
 import logo1 from '../../../assets/logo 2.png'
+import { AuthContext } from '../../../providers/AuthProvider';
 const Footer = () => {
+    const {loading} = useContext(AuthContext);
+    if(loading) {
+        return;
+    }
     return (
         <div className=" bg-[#151515] ">
             <div className=" container mx-auto">

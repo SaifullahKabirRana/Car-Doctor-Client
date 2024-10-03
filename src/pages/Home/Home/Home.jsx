@@ -1,16 +1,24 @@
+import { useContext } from "react";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Information from "../Information/Information";
 import Services from "../Services/Services";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Home = () => {
+    const { loading } = useContext(AuthContext);
+    if (loading) {
+        return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
+            <span class="loader "></span>
+        </div>
+    }
     return (
         <div>
-           <Banner></Banner> 
-           <About></About>
-           <Services></Services>
-           <Information></Information>
+            <Banner></Banner>
+            <About></About>
+            <Services></Services>
+            <Information></Information>
         </div>
     );
 };
