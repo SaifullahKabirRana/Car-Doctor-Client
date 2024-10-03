@@ -1,0 +1,19 @@
+.swiper-button-prev,
+.swiper-button-next{
+    color: black;
+    border-radius:50px;
+    background-color: #F3F3F3;
+    padding: 25px;
+    
+
+    
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+  background-color: #FF3811  
+    
+}
+:root {
+    --swiper-navigation-size: 25px;
+}
+
