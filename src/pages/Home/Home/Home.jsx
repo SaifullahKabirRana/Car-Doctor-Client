@@ -4,6 +4,8 @@ import Banner from "../Banner/Banner";
 import Information from "../Information/Information";
 import Services from "../Services/Services";
 import { AuthContext } from "../../../providers/AuthProvider";
+import OurTeam from "../OurTeam/OurTeam";
+import Features from "../Features/Features";
 
 
 const Home = () => {
@@ -19,6 +21,8 @@ const Home = () => {
             <About></About>
             <Services></Services>
             <Information></Information>
+            <OurTeam></OurTeam>
+            <Features></Features>
         </div>
     );
 };
