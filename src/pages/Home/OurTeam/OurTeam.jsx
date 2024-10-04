@@ -29,7 +29,7 @@ const OurTeam = () => {
                 <h2 className="text-[#151515] text-3xl md:text-4xl xl:text-5xl font-bold mt-2 md:mt-3 lg:mt-4 xl:mt-5">Meet Our Team</h2>
                 <p className="text-[#737373] text-xs md:text-sm lg:text-base mt-2 md:mt-3 lg:mt-4 xl:mt-5">The majority have suffered alteration in some form, by injected humour, or randomised <br className="hidden md:flex" /> words which don't look even slightly believable. </p>
             </div>
-            <div className='mt-4 md:mt-6 xl:mt-8 hidden md:flex '>
+            <div className='mt-4 md:mt-6 xl:mt-8 hidden md:flex  '>
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={18}
@@ -62,7 +62,7 @@ const OurTeam = () => {
 
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="border rounded-xl p-4 md:p-3 lg:p-4 xl:p-6">
+                        <div className="border rounded-xl p-4 md:p-3 lg:p-4 xl:p-6 ">
                             <img className='rounded-xl w-full' src={img2} alt="" />
                             <div className='text-center'>
                                 <h2 className='text-[#444444] text-xl xl:text-2xl font-bold mt-3 md:mt-4 xl:mt-5'>Car Engine Plug</h2>
@@ -78,7 +78,7 @@ const OurTeam = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="border rounded-xl p-4 md:p-3 lg:p-4 xl:p-6">
+                        <div className="border rounded-xl p-4 md:p-3 lg:p-4 xl:p-6 ">
                             <img className='rounded-xl w-full' src={img3} alt="" />
                             <div className='text-center'>
                                 <h2 className='text-[#444444] text-xl xl:text-2xl font-bold mt-3 md:mt-4 xl:mt-5'>Car Engine Plug</h2>
