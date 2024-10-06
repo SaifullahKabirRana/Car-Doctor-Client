@@ -17,7 +17,7 @@ import { Navigation, FreeMode } from 'swiper/modules';
 import '../OurTeam/swiper.css';
 const Reviews = () => {
     return (
-        <div className='mt-10 md:mt-12 xl:mt-20 mb-20'>
+        <div className='mt-10 md:mt-12 xl:mt-20 mb-14 md:mb-16 xl:mb-28'>
             <div className="text-center">
                 <h3 className="text-[#FF3811] text-base md:text-lg lg:text-xl font-bold">Testimonial</h3>
                 <h2 className="text-[#151515] text-3xl md:text-4xl xl:text-5xl font-bold mt-2 md:mt-3 lg:mt-4 xl:mt-5">What Customer Says</h2>

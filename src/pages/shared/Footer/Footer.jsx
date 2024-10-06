@@ -1,6 +1,10 @@
 import { useContext } from 'react';
 import logo1 from '../../../assets/logo 2.png'
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaGoogle } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     const {loading} = useContext(AuthContext);
     if(loading) {
@@ -13,11 +17,15 @@ const Footer = () => {
                     <footer className="footer  py-[50px] md:py-[80px] lg:py-[110px] xl:py-[120px] ">
                         <aside>
                             <img className='' src={logo1} alt="" />
-                            <p className='text-[#F3F3F3] opacity-90'>
-                                ACME Industries Ltd.
-                                <br />
-                                Providing reliable tech since 1992
+                            <p className='text-[#F3F3F3] opacity-80 text-xs md:text-sm mt-1 md:mt-2'>
+                            Edwin Diaz is a software and web <br /> technologies engineer, a life coach <br /> trainer who is also a serial.
                             </p>
+                            <div className='flex gap-2 mt-2 md:mt-3 xl:mt-4'>
+                                <div className='bg-[#FFFFFF] bg-opacity-10 rounded-full '><FaGoogle className='text-white text-2xl md:text-4xl p-1 md:p-2 ' /></div>
+                                <div className='bg-[#FFFFFF] bg-opacity-10 rounded-full '><FaTwitter className='text-white text-2xl md:text-4xl p-1 md:p-2 ' /></div>
+                                <div className='bg-[#FFFFFF] bg-opacity-10 rounded-full '><FaInstagram className='text-white text-2xl md:text-4xl p-1 md:p-2 ' /></div>
+                                <div className='bg-[#FFFFFF] bg-opacity-10 rounded-full '><FaLinkedin className='text-white text-2xl md:text-4xl p-1 md:p-2 ' /></div>
+                            </div>
                         </aside>
                         <nav>
                             <h6 className="text-lg font-bold text-[#FFFFFF]">About</h6>
