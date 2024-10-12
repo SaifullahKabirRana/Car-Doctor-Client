@@ -1,11 +1,12 @@
 
 import { LuX } from "react-icons/lu";
-const BookingRow = ({ booking }) => {
-    const { img, service, price, date } = booking;
+const BookingRow = ({ booking, handleDelete }) => {
+    const { _id, img, service, price, date } = booking;
+    
     return (
         <tr>
             <th className="">
-                <button className="btn btn-xs md:btn-sm btn-circle bg-[#444444]"><LuX className="text-sm md:text-lg text-white font-semibold" /></button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-xs md:btn-sm btn-circle bg-[#444444]"><LuX className="text-sm md:text-lg text-white font-semibold" /></button>
             </th>
             <td className="">
                 <div className="avatar">
