@@ -11,7 +11,7 @@ const Navbar = () => {
             .then()
             .catch()
     }
-    if(loading){
+    if (loading) {
         return;
     }
     const navLinks = <>
@@ -21,10 +21,13 @@ const Navbar = () => {
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/contact'>Contact</NavLink></li>
         {
-            user? 
-            <li><NavLink onClick={handleLogout}>LogOut</NavLink></li>
-            :
-            <li><NavLink to='/Login'>Login</NavLink></li>
+            user ?
+                <>
+                    <li><NavLink to='/bookings'>My Bookings</NavLink></li>
+                    <li><Link onClick={handleLogout}>Log out</Link></li>
+                </>
+                :
+                <li><NavLink to='/Login'>Login</NavLink></li>
         }
 
     </>
