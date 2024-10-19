@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 const ServiceCard = ({ service }) => {
-    const {_id, img, title, price } = service;
+    const { _id, img, title, price } = service;
+    const { loading } = useContext(AuthContext);
+    if (loading) {
+        return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
+            <span class="loader "></span>
+        </div>
+    }
     return (
         <div>
             <div className="border rounded-xl">

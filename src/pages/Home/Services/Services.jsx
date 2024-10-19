@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    const { loading } = useContext(AuthContext);
+
     useEffect(() => {
         fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => setServices(data))
-    },[])
+            .then(res => res.json())
+            .then(data => {setServices(data)})
+    }, [])
+
+    if (loading) {
+        return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
+            <span class="loader "></span>
+        </div>
+    }
 
     return (
         <div className="pt-4 md:pt-6  xl:pt-10">
@@ -19,8 +28,8 @@ const Services = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 mt-4 md:mt-7 xl:mt-10">
                 {
                     services.map(service => <ServiceCard
-                    key={service._id}
-                    service={service}
+                        key={service._id}
+                        service={service}
                     ></ServiceCard>)
                 }
             </div>

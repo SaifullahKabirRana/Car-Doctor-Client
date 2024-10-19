@@ -46,6 +46,31 @@ const Bookings = () => {
             }
         });
     }
+
+    const handleBookingConfirm = _id => {
+        fetch(`http://localhost:5000/checkout/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'Confirm' })
+        }
+        )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = bookings.filter(booking => booking._id !== _id);
+                    const updated = bookings.find(booking => booking._id === _id);
+                    updated.status = 'Confirm';
+                    const newBookings = [updated, ...remaining];
+                    setBookings(newBookings);
+
+            }
+            })
+    }
+
     return (
         <div>
 
@@ -72,6 +97,7 @@ const Bookings = () => {
                                     key={booking._id}
                                     booking={booking}
                                     handleDelete={handleDelete}
+                                    handleBookingConfirm={handleBookingConfirm}
                                 ></BookingRow>)
                             }
 

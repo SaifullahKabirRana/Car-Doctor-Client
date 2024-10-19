@@ -1,7 +1,7 @@
 
 import { LuX } from "react-icons/lu";
-const BookingRow = ({ booking, handleDelete }) => {
-    const { _id, img, service, price, date } = booking;
+const BookingRow = ({ booking, handleDelete, handleBookingConfirm }) => {
+    const { _id, img, service, price, date, status } = booking;
     
     return (
         <tr>
@@ -25,7 +25,12 @@ const BookingRow = ({ booking, handleDelete }) => {
             </td>
             <td className="font-medium text-sm md:text-base xl:text-xl">{date}</td>
             <th>
-                <button className="btn btn-xs md:btn-sm  bg-[#FF3811] text-white font-semibold ">Pending</button>
+                {
+                    status === 'Confirm' ? 
+                    <button className="btn btn-xs md:btn-sm  border border-[#29B170] text-[#29B170] font-semibold bg-white ">Approved</button>
+                    : 
+                    <button onClick={() => handleBookingConfirm(_id)} className="btn btn-xs md:btn-sm  bg-[#FF3811] text-white font-semibold ">Pending</button>
+                }
             </th>
         </tr>
     );
