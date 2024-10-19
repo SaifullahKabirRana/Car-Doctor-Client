@@ -25,16 +25,19 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Login');
-                const user = {email};
-                // setTimeout(() => {
-                //     navigate(location?.state ? location.state : '/');
-                // }, 700)
+                const user = { email };
+
                 // get access token
-                axios.post('http://localhost:5000/jwt', user)
-                .then(res => {
-                    console.log(res.data);
-                })
-                .catch()
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            setTimeout(() => {
+                                navigate(location?.state ? location.state : '/');
+                            }, 700)
+                        }
+                    })
+                    
             })
             .catch(error => {
                 setLoginError(error.code);
