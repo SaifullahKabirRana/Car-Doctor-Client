@@ -5,8 +5,13 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const Bookings = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    if (loading) {
+        return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
+            <span class="loader "></span>
+        </div>
+    }
     const url = `http://localhost:5000/checkout?email=${user?.email}`;
     useEffect(() => {
         axios.get(url, { withCredentials: true })
@@ -17,6 +22,7 @@ const Bookings = () => {
         //     .then(res => res.json())
         //     .then(data => setBookings(data))
     }, []);
+
 
 
     const handleDelete = _id => {
@@ -75,6 +81,7 @@ const Bookings = () => {
                 }
             })
     }
+
 
     return (
         <div>
