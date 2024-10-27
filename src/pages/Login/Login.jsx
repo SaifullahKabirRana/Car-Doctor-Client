@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+// import axios from 'axios';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn } = useContext(AuthContext);
@@ -25,19 +25,22 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Login');
-                const user = { email };
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 700)
+                // const user = { email };
 
-                // get access token
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data);
-                        if (res.data.success) {
-                            setTimeout(() => {
-                                navigate(location?.state ? location.state : '/');
-                            }, 700)
-                        }
-                    })
-                    
+                // // get access token
+                // axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                //     .then(res => {
+                //         console.log(res.data);
+                //         if (res.data.success) {
+                //             setTimeout(() => {
+                //                 navigate(location?.state ? location.state : '/');
+                //             }, 700)
+                //         }
+                //     })
+
             })
             .catch(error => {
                 setLoginError(error.code);
