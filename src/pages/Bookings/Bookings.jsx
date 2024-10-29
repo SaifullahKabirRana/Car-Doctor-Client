@@ -14,7 +14,7 @@ const Bookings = () => {
             <span class="loader "></span>
         </div>
     }
-    // const url = `http://localhost:5000/checkout?email=${user?.email}`;
+    // const url = `https://car-doctor-server-lilac-delta.vercel.app/checkout?email=${user?.email}`;
     const url = `/checkout?email=${user?.email}`;
     useEffect(() => {
         axiosSecure.get(url)
@@ -42,7 +42,7 @@ const Bookings = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/checkout/${_id}`, {
+                fetch(`https://car-doctor-server-lilac-delta.vercel.app/checkout/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -64,7 +64,7 @@ const Bookings = () => {
     }
 
     const handleBookingConfirm = _id => {
-        fetch(`http://localhost:5000/checkout/${_id}`, {
+        fetch(`https://car-doctor-server-lilac-delta.vercel.app/checkout/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
