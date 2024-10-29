@@ -3,22 +3,27 @@ import { AuthContext } from "../../providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Bookings = () => {
     const { user, loading } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const axiosSecure = useAxiosSecure()
     if (loading) {
         return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
             <span class="loader "></span>
         </div>
     }
-    const url = `http://localhost:5000/checkout?email=${user?.email}`;
+    // const url = `http://localhost:5000/checkout?email=${user?.email}`;
+    const url = `/checkout?email=${user?.email}`;
     useEffect(() => {
-        axios.get(url, { withCredentials: true })
-            .then(res => {
-                setBookings(res.data);
-            })
-        // fetch(url)
+        axiosSecure.get(url)
+            .then(res => setBookings(res.data))
+        // axios.get(url, { withCredentials: true })
+        //     .then(res => {
+        //         setBookings(res.data);
+        //     })
+        // fetch(url, {credentials: 'include'})
         //     .then(res => res.json())
         //     .then(data => setBookings(data))
     }, []);

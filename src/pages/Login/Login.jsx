@@ -1,16 +1,18 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import login from '../../assets/images/login/login.svg';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import SocialMedia from './SocialMedia';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
+// import { AuthContext } from '../../providers/AuthProvider';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import useAuth from '../../hooks/useAuth';
 // import axios from 'axios';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn } = useContext(AuthContext);
+    // const { signIn } = useContext(AuthContext);
+    const { signIn } = useAuth();
     const [loginError, setLoginError] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();

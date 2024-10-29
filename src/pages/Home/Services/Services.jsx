@@ -1,16 +1,18 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ServiceCard from "./ServiceCard";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useServices from "../../../hooks/useServices";
 
 const Services = () => {
-    const [services, setServices] = useState([]);
+    // const [services, setServices] = useState([]);
     const { loading } = useContext(AuthContext);
+    const services = useServices();
 
-    useEffect(() => {
-        fetch('http://localhost:5000/services')
-            .then(res => res.json())
-            .then(data => {setServices(data)})
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/services')
+    //         .then(res => res.json())
+    //         .then(data => {setServices(data)})
+    // }, [])
 
     if (loading) {
         return <div className="flex justify-center mt-60 md:mt-72 xl:mt-96">
