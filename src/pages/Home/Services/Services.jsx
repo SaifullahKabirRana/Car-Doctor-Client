@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useServices from "../../../hooks/useServices";
 
 const Services = () => {
     // const [services, setServices] = useState([]);
+    const [asc, setAsc] = useState(true);
     const { loading } = useContext(AuthContext);
-    const services = useServices();
+    const services = useServices(asc);
+    
 
     // useEffect(() => {
     //     fetch('https://car-doctor-server-lilac-delta.vercel.app/services')
@@ -26,6 +28,11 @@ const Services = () => {
                 <h3 className="text-[#FF3811] text-base md:text-lg lg:text-xl font-bold">Service</h3>
                 <h2 className="text-[#151515] text-3xl md:text-4xl xl:text-5xl font-bold mt-2 md:mt-3 lg:mt-4 xl:mt-5">Our Service Area</h2>
                 <p className="text-[#737373] text-xs md:text-sm lg:text-base mt-2 md:mt-3 lg:mt-4 xl:mt-5">The majority have suffered alteration in some form, by injected humour, or randomised <br className="hidden md:flex" /> words which don't look even slightly believable. </p>
+            </div>
+            <div className="flex justify-end mt-4">
+                <button
+                    onClick={() => setAsc(!asc)}
+                    className="btn text-xs md:text-sm  bg-[#FF3811] font-bold btn-sm md:btn-md text-white"> Price: {asc ? 'High to low' : 'Low to high'}</button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 mt-4 md:mt-7 xl:mt-10">
                 {
